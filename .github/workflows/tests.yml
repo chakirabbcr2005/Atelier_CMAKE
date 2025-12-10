@@ -1,0 +1,18 @@
+name: Automatisation des tests
+
+on: push
+
+jobs:
+  Compilation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v3
+
+      - name: Compilation et tests
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          make
+          make test
